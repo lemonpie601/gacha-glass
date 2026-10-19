@@ -1,0 +1,12 @@
+{
+  "kind": "marinara.personal-extension",
+  "version": 1,
+  "config": {
+    "name": "Gacha Story Glass · 스토리 투명화",
+    "version": "1.2.0",
+    "description": "1.1.0 기반. 가챠포지 스토리·홈 비네트를 제거하고, 홈 상단 바·홈 버튼 배경은 30% 투명, 스토리 대사창은 40% 투명으로 표시합니다. 글자·아이콘·그림은 흐리게 만들지 않습니다.",
+    "runtime": "client",
+    "capabilities": ["full_page_access"],
+    "jsPath": "extension.js"
+  }
+}
