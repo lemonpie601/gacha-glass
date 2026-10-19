@@ -41,6 +41,17 @@
     .gf-stage:has(> .gf-view .hm-screen) > .gf-bar :is(.icon-button, button.currency, .gf-guide-q):focus-visible {
       box-shadow: inset 0 0 0 2px var(--coral, #e8c87a) !important;
     }
+    /* Home popups veil only the view below the bar. Match that veil over the bar too. */
+    .gf-stage:has(> .gf-view .hm-screen):has(> .gf-view .hm-pk-wrap) > .gf-bar::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 100;
+      pointer-events: none;
+      background: color-mix(in srgb, var(--ink, #060a10) 90%, transparent);
+      -webkit-backdrop-filter: blur(5px) saturate(0.75);
+      backdrop-filter: blur(5px) saturate(0.75);
+    }
     /* Let only the home background reach behind the in-flow header. Controls do not move. */
     .gf-stage:has(> .gf-view .hm-screen) > .gf-view .root:has(> .hm-screen) {
       overflow: visible !important;
