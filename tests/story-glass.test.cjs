@@ -96,3 +96,9 @@ test('leaving home restores the previous variable and queued measurements stop a
   atHome=true;observer.callback([{target:root,addedNodes:[],removedNodes:[]}]);dispose();await Promise.resolve();assert.equal(values.get(property),'23px');
   assert.equal(root.adoptedStyleSheets.length,0);assert.ok(f.observers.every(item=>item.disconnected));
 });
+
+test('fullscreen arena fills the host and drops the dvh cap',()=>{
+  const extension=require('../extension.js');
+  assert.match(extension.css,/:host\(:fullscreen\) \.gf-arena \{[^}]*max-height: none !important/);
+  assert.match(extension.css,/:host\(:fullscreen\) \.gf-arena \{[^}]*height: 100% !important/);
+});

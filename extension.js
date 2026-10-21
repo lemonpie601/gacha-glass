@@ -64,6 +64,21 @@
     .hm-screen > .hm-ground {
       top: calc(0px - var(--gf-story-glass-bar-height, 0px)) !important;
     }
+    /* Fullscreen: the arena is capped at 100dvh, which on iPad is shorter than the fullscreen host,
+       so the uncovered strip and the bottom glow showed through. Fill the host and paint the
+       letterbox in the stage's own ink so the 16:9 stage reads as one surface. */
+    :host(:fullscreen) {
+      background: #000 !important;
+      color-scheme: dark;
+    }
+    :host(:fullscreen) .gf-arena {
+      height: 100% !important;
+      max-height: none !important;
+      background: var(--ink, #0e1420) !important;
+    }
+    :host(:fullscreen) .gf-stage {
+      box-shadow: none !important;
+    }
   `;
 
   function attachHomeBackdrop(root, win) {
